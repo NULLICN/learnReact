@@ -1,0 +1,28 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json, env.d.ts, typed-router.d.ts",
+    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .prettier*, prettier*, .editorconfig"
+  },
+
+  // 启用ESLint
+  "eslint.enable": true,
+  // 保存时自动修复ESLint可修复的问题
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit", // 显式开启ESLint自动修复
+    "source.organizeImports": "explicit" // 可选：自动整理导入语句
+  },
+  // 设置默认格式化工具为Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 保存时自动格式化
+  "editor.formatOnSave": true,
+  // 对指定文件启用ESLint
+  "eslint.validate": ["javascript", "typescript", "vue", "html", "json"],
+  // 禁用内置的格式化工具，避免冲突
+  "eslint.format.enable": true,
+
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript"
+  }
+}

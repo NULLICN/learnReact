@@ -24,6 +24,10 @@ function App() {
     { id: 3, name: "Doe" },
   ]);
 
+  const numberList = [1, 2, 3, 4, 5].map((num) => {
+    return <li key={num}>{num}</li>;
+  });
+
   function handleCount() {
     console.log("clicked");
     const result = count * 2;
@@ -50,6 +54,7 @@ function App() {
       <button className="btn" onClick={changeList}>
         Change list
       </button>
+      <ul>{numberList}</ul>
     </>
   );
 }

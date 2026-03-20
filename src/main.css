@@ -3,3 +3,7 @@
 .btn {
   @apply bg-blue-500 hover:bg-blue-600 active:scale-[0.97] text-white font-bold p-2 m-2 rounded transition duration-75;
 }
+
+section {
+  @apply p-4 m-4 border rounded;
+}

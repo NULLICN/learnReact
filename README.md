@@ -1,5 +1,12 @@
 # React + TypeScript + Vite
 
+<a href="https://github.com/NULLICN/learnReact/commits/main">
+  <img src="https://img.shields.io/github/last-commit/NULLICN/learnReact?style=flat&color=orange"
+       alt="Last Commit" 
+       height="16" 
+       style="border: none;">
+</a>
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -1,0 +1,58 @@
+/*
+  Scoped styles for RenderList component (CSS Module)
+
+  说明:
+  - 使用 CSS Modules 导入（例如: `import styles from "./renderList.module.css"`），
+    类名会被哈希化，只在引用该模块的组件中生效，避免全局冲突。
+  - 在组件 JSX 中通过 `styles.renderList` 等属性访问样式。
+*/
+.renderList {
+  padding: 16px;
+  max-width: 780px;
+  margin: 24px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+
+.renderList h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.renderList ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 12px 0;
+}
+
+.renderList li {
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.renderListRaw li {
+  /* 原始字符串列表项的背景，采用浅色渐变以区分默认展示 */
+  background: linear-gradient(90deg, #f8fafc, #ffffff);
+}
+
+.renderListChemists li {
+  /* 化学家列表项的强调样式：浅蓝背景 + 左侧蓝色条 */
+  background: #f0f9ff;
+  border-left: 4px solid #60a5fa;
+}
+
+.renderList hr {
+  border: none;
+  border-top: 1px solid #e6eef8;
+  margin: 16px 0;
+}

@@ -44,6 +44,7 @@ export default function KeepAliveState() {
   return (
     <>
       <section>
+        <p>组件切换与破坏</p>
         <div>{componentState}</div>
         <button
           className="btn"

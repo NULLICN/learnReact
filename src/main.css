@@ -4,6 +4,14 @@
   @apply bg-blue-500 hover:bg-blue-600 active:scale-[0.97] text-white font-bold p-2 m-2 rounded transition duration-75;
 }
 
+.btn-s-green {
+  @apply bg-green-500 hover:bg-green-600 active:scale-[0.97] text-white font-bold p-1 m-1 rounded text-sm transition duration-75;
+}
+
+.btn-s-red {
+  @apply bg-red-500 hover:bg-red-600 active:scale-[0.97] text-white font-bold p-1 m-1 rounded text-sm transition duration-75;
+}
+
 section {
   @apply p-4 m-4 border rounded;
 }

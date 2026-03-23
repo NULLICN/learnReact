@@ -1,11 +1,13 @@
-import AboutProps from "./pages/aboutProps";
-import ComponentFeature from "./pages/componentFeature";
-import ComponentState from "./pages/componentState";
-import ConditionRendering from "./pages/conditionRendering";
-import Home from "./pages/home";
-import KeepAliveState from "./pages/keepAliveState";
-import RenderList from "./pages/renderList";
-import StateManagement from "./pages/stateManagement";
+import AboutProps from "./pages/AboutProps";
+import ComponentFeature from "./pages/ComponentFeature";
+import ComponentState from "./pages/ComponentState";
+import ConditionRendering from "./pages/ConditionRendering";
+import ContextRelay from "./pages/ContextRelay";
+import Home from "./pages/Home";
+import KeepAliveState from "./pages/KeepAliveState";
+import RenderList from "./pages/RenderList";
+import StateByReducer from "./pages/StateByReducer";
+import StateManagement from "./pages/StateManagement";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
       <ComponentState />
       <StateManagement />
       <KeepAliveState />
+      <StateByReducer />
+      <ContextRelay />
     </>
   );
 }

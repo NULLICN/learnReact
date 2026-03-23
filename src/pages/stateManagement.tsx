@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { useImmer } from "use-immer";
 
 export default function StateManagement() {
+  const [isDisabled, setIsDisabled] = useImmer(false);
+  const [disabledStyle, setDisabledStyle] = useImmer('');
   const [text, setText] = useImmer("");
   const [textareaStatus, setTextareaStatus] = useImmer({
     waiting: true,
@@ -25,7 +27,7 @@ export default function StateManagement() {
     // 清除上一次定时器，重新计时
     if (timerRef.current !== null) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
-        console.log("输入停止，切换到等待状态");
+      console.log("输入停止，切换到等待状态");
       setTextareaStatus((draft) => {
         draft.waiting = true;
         draft.typing = false;
@@ -42,6 +44,30 @@ export default function StateManagement() {
     },
     [],
   );
+
+  function handleCusButtonClick() {
+    setIsDisabled(true);
+    setDisabledStyle('#f0f0f0');
+    console.log('按钮点击，开始禁用');
+    setTimeout(() => {
+      setIsDisabled(false);
+      setDisabledStyle('');
+      console.log('三秒结束，按钮重新启用');
+    }, 3000);
+  }
+
+  function CusButton({ isDisabled }: { isDisabled: boolean }) {
+    return (
+      <button
+        className={`btn`}
+        style={{ backgroundColor: disabledStyle }}
+        onClick={handleCusButtonClick}
+        disabled={isDisabled}
+      >
+        禁用按钮三秒
+      </button>
+    );
+  }
 
   return (
     <>
@@ -72,6 +98,11 @@ export default function StateManagement() {
         >
           提交
         </button>
+      </section>
+      <section>
+        <p>状态提升</p>
+        <CusButton isDisabled={isDisabled} />
+        <CusButton isDisabled={isDisabled} />
       </section>
     </>
   );

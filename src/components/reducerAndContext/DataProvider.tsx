@@ -1,23 +1,9 @@
 /**
- * （内聚）context源，声明了reducer管理与context上下文，提供一个子组件为其注入数据和dispatch方法
+ * （耦合）提供reducer管理与context上下文，接受一个子组件为其注入数据和dispatch方法
  */
-import { createContext } from "react";
-import { useContext } from "react";
 import { useImmerReducer } from "use-immer";
-export const TasksContext = createContext<any>(null);
-export const TasksDispatchContext = createContext<any>(null);
-
-// 提供数据上下文
-export function useTasks() {
-  return useContext(TasksContext);
-}
-// 提供dispatch上下文
-export function useTasksDispatch() {
-  return useContext(TasksDispatchContext);
-}
-
-// 
-export function TasksProvider({ children }: any) {
+import { TasksContext, TasksDispatchContext } from "./DatasContext";
+export default function DataProvider({ children }: any) {
   const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
   return (
     <>
@@ -29,13 +15,13 @@ export function TasksProvider({ children }: any) {
     </>
   );
 }
-
-// 数据与reducer函数
-const initialTasks = [
-  { id: 0, text: "Philosopher’s Path", done: true },
-  { id: 1, text: "Visit the temple", done: false },
-  { id: 2, text: "Drink matcha", done: false },
-];
+/**
+ * 使用reducer管理状态与context深层传递
+ * 要求：
+ *  1.数组数据列表渲染
+ *  2.对数组数据进行增删改操作
+ *  3.使用Context实现深层组件传递
+ */
 function tasksReducer(tasks: any, action: any) {
   switch (action.type) {
     case "added": {
@@ -65,3 +51,8 @@ function tasksReducer(tasks: any, action: any) {
     }
   }
 }
+const initialTasks = [
+  { id: 0, text: "Philosopher’s Path", done: true },
+  { id: 1, text: "Visit the temple", done: false },
+  { id: 2, text: "Drink matcha", done: false },
+];

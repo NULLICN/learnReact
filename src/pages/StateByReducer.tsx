@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import { useImmerReducer } from "use-immer";
 
 export default function StateByReducer() {

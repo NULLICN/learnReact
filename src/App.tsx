@@ -8,6 +8,7 @@ import KeepAliveState from "./pages/KeepAliveState";
 import RenderList from "./pages/RenderList";
 import StateByReducer from "./pages/StateByReducer";
 import StateManagement from "./pages/StateManagement";
+import ReducerAndContext from "./pages/ReducerAndContext";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <KeepAliveState />
       <StateByReducer />
       <ContextRelay />
+      <ReducerAndContext />
     </>
   );
 }

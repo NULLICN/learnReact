@@ -16,7 +16,9 @@ jobs:
   # ============================================================
   build-and-deploy:
     name: Build & Deploy
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       # 1. 拉取仓库代码
@@ -73,4 +75,4 @@ jobs:
           #   - 重载 Nginx 使新静态文件立即生效（无需完整重启，降低服务中断风险）
           #   请根据实际服务器环境修改此命令（如 pm2 / apache / caddy 等）
           script: |
-            systemctl reload nginx
+            sudo systemctl reload nginx

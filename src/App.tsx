@@ -9,6 +9,7 @@ import RenderList from "./pages/RenderList";
 import StateByReducer from "./pages/StateByReducer";
 import StateManagement from "./pages/StateManagement";
 import ReducerAndContext from "./pages/ReducerAndContext";
+import RefAndState from "./pages/RefAndState";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <StateByReducer />
       <ContextRelay />
       <ReducerAndContext />
+      <RefAndState />
     </>
   );
 }

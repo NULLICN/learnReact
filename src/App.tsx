@@ -18,7 +18,7 @@ function App() {
   let parentDom = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     scrollToBottom();
-  }, []);
+  });
 
   function scrollToBottom() {
     const el = parentDom.current!;

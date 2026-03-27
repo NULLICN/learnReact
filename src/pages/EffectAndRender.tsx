@@ -427,7 +427,12 @@ function EffectRenderTiming({ data }: { data: number }) {
   if(data !== compdata) {
     setCompData(data);
   }
-  console.log("组件重渲", {compdata})
+  useEffect(() => {
+    console.log("组件挂载，副作用执行，当前值：", compdata);
+    return ()=>{
+      console.log("组件销毁，副作用执行，上一个值",compdata);
+    }
+  })
   return (
     <>
       <p>data: {compdata}</p>

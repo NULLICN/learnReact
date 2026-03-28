@@ -13,6 +13,7 @@ import RefAndState from "./pages/RefAndState";
 import RenderList from "./pages/RenderList";
 import StateByReducer from "./pages/StateByReducer";
 import StateManagement from "./pages/StateManagement";
+import AboutHookAndComponent from "./pages/AboutHookAndComponent";
 
 function App() {
   let parentDom = useRef<HTMLDivElement | null>(null);
@@ -40,6 +41,7 @@ function App() {
         <ReducerAndContext />
         <RefAndState />
         <EffectAndRender />
+        <AboutHookAndComponent />
       </div>
     </>
   );

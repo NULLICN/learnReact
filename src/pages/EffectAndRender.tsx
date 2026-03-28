@@ -31,6 +31,10 @@ export default function EffectAndRender() {
         <input type="text" onChange={(e) => setInputData(Number(e.target.value))}/>
         <button onClick={()=>{setData(inputData)}}>增加数据</button>
       </section>
+      <section>
+        <p>无响应依赖的Effect</p>
+        <NoDepsEffect />
+      </section>
     </>
   );
 }
@@ -436,6 +440,32 @@ function EffectRenderTiming({ data }: { data: number }) {
   return (
     <>
       <p>data: {compdata}</p>
+    </>
+  )
+}
+
+// 无响应依赖的Effect
+function NoDepsEffect() {
+  console.log("组件渲染");
+  const [count, setCount] = useImmer(0);
+  const [increment, setIncrement] = useImmer(0);
+  
+  function onTick() {
+    setCount(()=> count + increment );
+  }
+  useEffect(() => {
+    console.log("副作用执行");
+    const timer = setInterval(onTick, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  })
+  return(
+    <>
+      <p>计数: {count}</p>
+      <p>增量: {increment}</p>
+      <button className="btn-s-normal" onClick={()=>setIncrement(increment+1)}>增加</button>
+      <button className="btn-s-normal" onClick={()=>setIncrement(increment-1)}>减少</button>
     </>
   )
 }

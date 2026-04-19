@@ -4,6 +4,8 @@
 import { createContext } from "react";
 import { useContext } from "react";
 import { useImmerReducer } from "use-immer";
+
+// 声明上下文变量
 export const TasksContext = createContext<any>(null);
 export const TasksDispatchContext = createContext<any>(null);
 
@@ -16,11 +18,12 @@ export function useTasksDispatch() {
   return useContext(TasksDispatchContext);
 }
 
-// 
+// 接收被包裹的子组件，为其提供tasks与dispatch
 export function TasksProvider({ children }: any) {
   const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
   return (
     <>
+      {/* 为上下文注入数据 */}
       <TasksContext.Provider value={tasks}>
         <TasksDispatchContext.Provider value={dispatch}>
           {children}

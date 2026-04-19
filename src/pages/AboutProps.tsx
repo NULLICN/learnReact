@@ -21,7 +21,9 @@ export default function AboutProps() {
   return (
     <>
       <section>
+        {/* 如果一个组件所接收值的键与数据的键一致，那么可以这样简写 {...props} */}
         <LearnProps {...props} />
+        {/* 改变源数据，会让状态管理更新一系列组件 */}
         <button className="btn" onClick={handleProps}>
           Change Props
         </button>

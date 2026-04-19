@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useImmerReducer } from "use-immer";
-
+/* 
+reducer集中管理零散的状态更新逻辑，适合状态更新较复杂的场景
+useReducer的第一个参数是一个reducer函数，第二个参数是reducer的初始状态
+reducer函数接收当前状态和一个action对象作为参数，根据action.type来决定如何更新状态，并返回新的状态
+useReducer返回一个数组，第一个元素是当前状态，第二个元素是一个dispatch函数，用于触发状态更新
+dispatch函数接受一个action对象作为参数，调用reducer函数来计算新的状态，并触发组件重新渲染
+*/
 export default function StateByReducer() {
   // ✅ state 是当前任务列表，由 reducer 管理
   const [tasks, dispatch] = useImmerReducer(tasksReducer, initialState);

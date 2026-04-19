@@ -12,6 +12,7 @@ export default function StateManagement() {
   });
 
   // 保存定时器 id，防止多个定时器叠加
+  // ref.current获取或设定参照值
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // 防抖函数，监听文本输入，1秒后设置状态为等待输入
@@ -42,8 +43,15 @@ export default function StateManagement() {
     () => () => {
       if (timerRef.current !== null) clearTimeout(timerRef.current);
     },
-    [],
+    []
   );
+  /* 
+  useEffect(() => () => {})
+  useEffect内部为一个匿名函数，此匿名函数返回的函数会作为组件销毁时要执行的清理函数。useEffect的执行时机根据传入的第二个值决定：
+    []表示首次渲染时执行、
+    [v1,v2]表示当v1或v2发生变化时执行、
+    未传入表示每次渲染时都执行。
+  */
 
   function handleCusButtonClick() {
     setIsDisabled(true);

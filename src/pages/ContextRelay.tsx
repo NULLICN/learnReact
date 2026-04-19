@@ -22,3 +22,7 @@ export default function ContextRelay() {
         </>
     );
 }
+/* 
+使用createContext与useContext实现Context深层传递
+在任意深度可以使用到最顶层组件提供的Context值，避免了层层传递props的麻烦
+*/

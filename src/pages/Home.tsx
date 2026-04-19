@@ -49,21 +49,27 @@ export default function Home() {
 
   return (
     <>
+    {/* 一个计算器，用到了由状态管理(useState)来管理的变量count
+        使用了一个处理函数来更新count的值，它们目前是耦合的
+    */}
       <section>
         <Counter count={count} handleCount={handleCount} />
       </section>
 
+      {/* 列表渲染，用js控制渲染内容，从一个被状态管理的数组中读取 */}
       <section>
         <ul>
           {lists.map(({ id, name }) => (
             <li key={id}>{name}</li>
           ))}
         </ul>
+        {/* 这个处理函数更改了数组数据 */}
         <button className="btn" onClick={changeList}>
           Change list
         </button>
       </section>
 
+      {/* 一个变量，但是已经提前计算好列表渲染内容了 */}
       <section>
         <ul>{numberList}</ul>
       </section>

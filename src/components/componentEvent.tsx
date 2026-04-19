@@ -41,6 +41,7 @@ function PreventEvent() {
     }, 1000);
   }
   function handleChildClick(e: React.MouseEvent<HTMLButtonElement>) {
+    // 使用js的方式，此处子元素阻止了事件传递
     e.stopPropagation(); // 阻止事件冒泡
     setChildMes("子元素被点击了");
     setChildMesStyle("text-red-500");
@@ -51,8 +52,10 @@ function PreventEvent() {
   }
   return (
     <>
+      {/* 两行信息提示框 */}
       <p className={`${parentMesStyle} transition duration-300`}>父元素：{parentMes}</p>
       <p className={`${childMesStyle} transition duration-300`}>子元素：{childMes}</p>
+      {/* 事件处理演示 */}
       <div className="bg-green-300 p-4" onClick={handleParentClick}>
         <p>此段属于父元素，点击触发父元素事件</p>
         <button className="btn" onClick={handleChildClick}>触发子元素事件</button>

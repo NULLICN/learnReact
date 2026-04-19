@@ -24,13 +24,18 @@ export default function KeepAliveState() {
   );
   const [isClear, setIsClear] = useState(false);
 
-  function handleChangeComponentState() {
+  function handleChangeComponent() {
     setIsExchange(!isExchange);
     if (isExchange) {
       setComponentState(<Counter name="counter 1" key="counter1" />);
     } else {
-      setComponentState(<Counter name="counter 2" key="counter2" />);
+      // 通过改变组件的key值来强制React重新创建组件，从而实现组件状态的切换
+      setComponentState(<Counter name="counter 2" key="counter1" />);
     }
+  }
+
+  function handleChangeDifferentComponent() {
+    setComponentState(<Counter name="a different counter" key="counter2" />);
   }
 
   function handleClearComponent() {
@@ -45,6 +50,7 @@ export default function KeepAliveState() {
     <>
       <section>
         <p>组件切换与破坏</p>
+        {/* React通过观察组件是否在同一dom树中的位置来决定是否更新组件 */}
         <div>{componentState}</div>
         <button
           className="btn"
@@ -52,9 +58,10 @@ export default function KeepAliveState() {
         >
           破坏组件保活
         </button>
-        <button className="btn" onClick={handleChangeComponentState}>
-          Change Counter
+        <button className="btn" onClick={handleChangeComponent}>
+          切换同一个counter组件
         </button>
+        <button className="btn" onClick={handleChangeDifferentComponent}>切换不同的counter组件</button>
       </section>
       <section>
         <p>清除组件但保留状态</p>

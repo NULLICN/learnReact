@@ -8,6 +8,7 @@ export default function ConditionRendering() {
     }
     return (
         <>
+            {/* 条件渲染，有三种方式可以选择 */}
             <section>
                 <div>
                     {allowRender ? "Content is allowed to render" : "Content is not allowed to render"} by syntax"? :"
